@@ -162,4 +162,14 @@ def get_img_url(url):
     id = url.split("/")[-2]
     return "http://h5.cyol.com/special/daxuexi/"+id+"/images/end.jpg"
 
+def get_study_log():
+    params = (
+        ('method', 'queryPersonStudyRecord'),
+    )
+    data = {
+        'openid': openId,
+    }
+    response = requests.post(baseUrl, params=params, data=data)
+    return response.json()
 
+print(get_study_log())

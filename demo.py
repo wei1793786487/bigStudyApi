@@ -1,5 +1,5 @@
 import index
-
+import time
 
 def get_new_images():
 
@@ -55,7 +55,10 @@ def study_all():
     for key in version:
         compilation_list = index.get_version_under_compilation(key)
         list_get = compilation_list.get("vds")
+        print(list_get)
         for key1 in list_get:
-            print("学习"+key1)
-            index.study_pastversion(key1.get("version"))
+         index.study_pastversion(key1.get("version"))
+         time.sleep(10)
+         print(key1.get("version"))
 
+study_all()
