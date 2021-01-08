@@ -1,10 +1,24 @@
 import requests
 import re
 
-openId = ""
+openId = "ohz9Mtxns48AJxTS6PvkX_weibP4"
 
 baseUrl = "http://qndxx.youth54.cn/SmartLA/dxxjfgl.w"
 
+
+def get_new_list():
+    '''
+    最新一期列表
+    :return:
+    '''
+    params = (
+        ('method', 'getPastVideoList'),
+    )
+    data = {
+        'openid': openId,
+    }
+    response = requests.post(baseUrl, params=params, data=data)
+    return response.json()
 
 def study_latest(version):
     """
@@ -172,4 +186,9 @@ def get_study_log():
     response = requests.post(baseUrl, params=params, data=data)
     return response.json()
 
-print(get_study_log())
+# print(get_study_log())
+# study_latest("10-9")
+# print(get_new_version())
+# compilation_list = get_version_under_compilation()
+# new_list = get_new_list()
+# print(new_list)

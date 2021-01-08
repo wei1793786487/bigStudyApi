@@ -46,7 +46,8 @@ def get_all_images():
         get_images(key)
 
 
-def study_all():
+def study_last__all():
+
     '''
     学习往期所有大学习
     :return:
@@ -58,7 +59,17 @@ def study_all():
         print(list_get)
         for key1 in list_get:
          index.study_pastversion(key1.get("version"))
-         time.sleep(10)
+         # time.sleep(10)
          print(key1.get("version"))
 
-study_all()
+
+def study_new_all():
+   new_list= index.get_new_list()
+   list_get = new_list.get("vds")
+   print(list_get)
+   for key1 in list_get:
+       index.study_pastversion(key1.get("version"))
+       # time.sleep(10)
+       print(key1.get("version"))
+
+study_new_all()
